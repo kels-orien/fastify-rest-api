@@ -1,0 +1,36 @@
+{
+  "name": "fastify-rest-api",
+  "version": "1.0.0",
+  "description": "A fast REST API using Nodejs, Fastifyjs and Heroku",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tap test/**/*.test.js",
+    "start": "fastify start -l info app.js",
+    "dev": "fastify start -l info -P app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kels-orien/fastify-rest-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kels-orien/fastify-rest-api/issues"
+  },
+  "homepage": "https://github.com/kels-orien/fastify-rest-api#readme",
+  "dependencies": {
+    "apollo-server-fastify": "^2.4.8",
+    "fastify": "^2.0.0",
+    "fastify-autoload": "^0.6.0",
+    "fastify-cli": "^1.0.0",
+    "fastify-plugin": "^1.5.0",
+    "graphql": "^14.2.0"
+  },
+  "devDependencies": {
+    "tap": "^12.5.3"
+  }
+}
