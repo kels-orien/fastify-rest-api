@@ -1,26 +1,20 @@
 "use strict";
-
 const path = require("path");
 const AutoLoad = require("fastify-autoload");
+require("dotenv").config({ path: ".env" });
+const mongoose = require("mongoose");
 
-const { ApolloServer } = require("apollo-server-fastify");
-const { typeDefs, resolvers } = require("./module");
+mongoose
+  .connect(process.env.DB_CONNECTION_STRING, { useNewUrlParser: true })
+  .then(() => {
+    console.log("Connection to DB successful");
+  })
+  .catch(err => {
+    console.log(`Connection to DB Error: ${err}`);
+  });
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers
-});
-const fastify = require('fastify')();
- (async function() {
-  fastify.register(server.createHandler());
-  await fastify.listen(3000);
-   })()
-
-module.exports =  function(fastify, opts, next) {
+module.exports = function(fastify, opts, next) {
   // Place here your custom code!
-  fastify.register(server.createHandler());
-  await fastify.listen(3000);
-
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins
