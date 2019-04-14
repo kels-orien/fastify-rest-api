@@ -1,6 +1,6 @@
 // Get Data Models
 const Contact = require("../models/Contact");
-
+const boom = require("boom");
 // Get all Contacts
 exports.getContacts = async (req, reply) => {
   try {
