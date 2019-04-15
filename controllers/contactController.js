@@ -5,6 +5,7 @@ const boom = require("boom");
 exports.getContacts = async (req, reply) => {
   try {
     const Contacts = await Contact.find();
+    console.log("find contacts: ", Contacts);
     return Contacts;
   } catch (err) {
     throw boom.boomify(err);

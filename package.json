@@ -26,6 +26,7 @@
     "apollo-server-fastify": "^2.4.8",
     "boom": "^7.3.0",
     "fastify": "^2.0.0",
+    "fastify-accepts": "^0.5.0",
     "fastify-autoload": "^0.6.0",
     "fastify-cli": "^1.0.0",
     "fastify-formbody": "^3.1.0",
@@ -34,6 +35,7 @@
     "mongoose": "^5.5.0"
   },
   "devDependencies": {
+    "nodemon": "^1.18.11",
     "tap": "^12.5.3"
   }
 }
