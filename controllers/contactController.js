@@ -4,9 +4,8 @@ const boom = require("boom");
 // Get all Contacts
 exports.getContacts = async (req, reply) => {
   try {
-    const Contacts = await Contact.find();
-    console.log("find contacts: ", Contacts);
-    return Contacts;
+    const contacts = await Contact.find();
+    return contacts;
   } catch (err) {
     throw boom.boomify(err);
   }
@@ -16,8 +15,9 @@ exports.getContacts = async (req, reply) => {
 exports.getAContact = async (req, reply) => {
   try {
     const id = req.params.id;
-    const Contact = await Contact.findById(id);
-    return Contact;
+    const contact = await Contact.findById(id);
+    reply.send(contact);
+    return contact;
   } catch (err) {
     throw boom.boomify(err);
   }
@@ -26,8 +26,9 @@ exports.getAContact = async (req, reply) => {
 // Add a new Contact
 exports.addContact = async (req, reply) => {
   try {
-    const Contact = new Contact(req.body);
-    return Contact.save();
+    const contact = new Contact(req.body);
+    console.log("add contacts: ", contact);
+    return contact.save();
   } catch (err) {
     throw boom.boomify(err);
   }
@@ -37,8 +38,8 @@ exports.addContact = async (req, reply) => {
 exports.updateContact = async (req, reply) => {
   try {
     const id = req.params.id;
-    const Contact = req.body;
-    const { ...updateData } = Contact;
+    const contact = req.body;
+    const { ...updateData } = contact;
     const update = await Contact.findByIdAndUpdate(id, updateData, {
       new: true
     });
@@ -52,8 +53,8 @@ exports.updateContact = async (req, reply) => {
 exports.deleteContact = async (req, reply) => {
   try {
     const id = req.params.id;
-    const Contact = await Contact.findByIdAndRemove(id);
-    return Contact;
+    const contact = await Contact.findByIdAndRemove(id);
+    return contact;
   } catch (err) {
     throw boom.boomify(err);
   }
