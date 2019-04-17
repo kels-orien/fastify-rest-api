@@ -1,13 +1,13 @@
 "use strict";
-
+const formbody = require("fastify-formbody");
 const contactController = require("../controllers/contactController");
 
 module.exports = function(fastify, opts, next) {
   opts = {
-    handler: contactController.getContacts
+    handler: contactController.updateContact
   };
-
-  fastify.get("/getContacts", opts);
+  fastify.register(formbody);
+  fastify.put("/updateContact/:id", opts);
 
   next();
 };

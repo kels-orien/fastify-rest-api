@@ -16,7 +16,6 @@ exports.getAContact = async (req, reply) => {
   try {
     const id = req.params.id;
     const contact = await Contact.findById(id);
-    reply.send(contact);
     return contact;
   } catch (err) {
     throw boom.boomify(err);
@@ -40,7 +39,7 @@ exports.updateContact = async (req, reply) => {
     const id = req.params.id;
     const contact = req.body;
     const { ...updateData } = contact;
-    const update = await Contact.findByIdAndUpdate(id, updateData, {
+    const update = await Contact.findOneAndUpdate(id, updateData, {
       new: true
     });
     return update;
@@ -53,7 +52,7 @@ exports.updateContact = async (req, reply) => {
 exports.deleteContact = async (req, reply) => {
   try {
     const id = req.params.id;
-    const contact = await Contact.findByIdAndRemove(id);
+    const contact = await Contact.findOneAndRemove(id);
     return contact;
   } catch (err) {
     throw boom.boomify(err);

@@ -4,10 +4,10 @@ const contactController = require("../controllers/contactController");
 
 module.exports = function(fastify, opts, next) {
   opts = {
-    handler: contactController.addContact
+    handler: contactController.deleteContact
   };
   fastify.register(formbody);
-  fastify.post("/addContact", opts);
+  fastify.delete("/deleteContact/:id", opts);
 
   next();
 };

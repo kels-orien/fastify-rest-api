@@ -4,10 +4,10 @@ const contactController = require("../controllers/contactController");
 
 module.exports = function(fastify, opts, next) {
   opts = {
-    handler: contactController.getContacts
+    handler: contactController.getAContact
   };
 
-  fastify.get("/getContacts", opts);
+  fastify.get("/getAContact/:id", opts);
 
   next();
 };
