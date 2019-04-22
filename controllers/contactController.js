@@ -26,7 +26,6 @@ exports.getAContact = async (req, reply) => {
 exports.addContact = async (req, reply) => {
   try {
     const contact = new Contact(req.body);
-    console.log("add contacts: ", contact);
     return contact.save();
   } catch (err) {
     throw boom.boomify(err);
