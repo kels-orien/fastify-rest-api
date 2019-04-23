@@ -17,12 +17,14 @@ module.exports = function(fastify, opts, next) {
     },
     response: {
       200: {
-        type: "array",
+        type: "object",
         properties: {
+          _id: { type: "string" },
           firstname: { type: "string" },
           lastname: { type: "string" },
           email: { type: "string" },
-          phonenumber: { type: "string" }
+          phonenumber: { type: "string" },
+          __v: { type: "number" }
         }
       }
     },
