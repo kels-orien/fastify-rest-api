@@ -1,4 +1,5 @@
 "use strict";
+
 const formbody = require("fastify-formbody");
 const contactController = require("../controllers/contactController");
 
