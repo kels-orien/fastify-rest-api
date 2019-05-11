@@ -25,7 +25,6 @@
   "dependencies": {
     "boom": "^7.3.0",
     "fastify": "^2.0.0",
-    "fastify-accepts": "^0.5.0",
     "fastify-autoload": "^0.6.0",
     "fastify-cli": "^1.0.0",
     "fastify-formbody": "^3.1.0",
